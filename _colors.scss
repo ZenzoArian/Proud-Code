@@ -1,0 +1,102 @@
+// COLOR HIERARCHY
+
+$theme-colors : (
+
+    "page_background"   : "../../web/assets/",
+    "content_background": #ffff,
+
+    "header_nav_text" : #ffff,
+    "sidebar_nav_text": #ffff,
+
+    "nav_active": #2c597c,
+    "nav_hover" : #2c597c,
+
+    "h1": #2c597c,
+    "h2": #2c597c,
+    "h3": #2c597c,
+    "h4": #2c597c,
+    "h5": #2c597c,
+    "h6": #2c597c,
+    "p" : #2c597c,
+    "a" : #319ef9,
+
+    "intro"    : #2c597c,
+    "bodyText" : #2c597c,
+    "bodyLink" : #4cade8,
+    "smallLink": #2c597c,
+    "navText"  : #2c597c,
+    "ctaText"  : #2c597c,
+    "uspText"  : #2c597c,
+
+    "a_hover": #5a5a5a,
+
+    "dot_color": #4cade8,
+
+    "color_display_text": #ffff,
+
+    "header_text_gradient_L": #48d6ff,
+    "header_text_gradient_R": #32325d,
+
+    "stand_color_first" : #4cade8,
+    "stand_color_second": #2c597c,
+    "stand_color_third" : #da78a7,
+
+);
+
+$display-colors : (
+  // When using color names with spaces use: _
+  // Example: The green hill --> The_green_hill
+  // Accepted color formats: HEX, RGB, RGBA.
+  
+  "primary--Green" : #3AA76D,
+  "primary--Yellow": #FFC043,
+  "primary--Red"   : #D44333,
+  "primary--Brown" : #99644C,
+  "primary--Orange": #ED6E33,
+  "primary--Purple": #7356BF,
+
+  "secondary--Yellow": #FFC043,
+  "secondary--Brown" : #99644C,
+  "secondary--Purple": #7356BF,
+  "secondary--Red"   : #D44333,
+  "secondary--Green" : #3AA76D,
+  "secondary--Orange": #ED6E33,
+
+  "tertiary--Red"   : #D44333,
+  "tertiary--Yellow": #FFC043,
+  "tertiary--Green" : #3AA76D,
+  "tertiary--Orange": #ED6E33,
+  "tertiary--Purple": #7356BF,
+  "tertiary--Brown" : #99644C,
+
+  "quaternary--Brown" : #99644C,
+  "quaternary--Purple": #7356BF,
+  "quaternary--Orange": #ED6E33,
+  "quaternary--Red"   : #D44333,
+  "quaternary--Yellow": #FFC043,
+  "quaternary--Green" : #3AA76D,
+
+  "complementary--Yellow": #FFC043,
+  "complementary--Green" : #3AA76D,
+  "complementary--Red"   : #D44333,
+  "complementary--Purple": #7356BF,
+  "complementary--Brown" : #99644C,
+  "complementary--Orange": #ED6E33,
+);
+
+
+:export {
+  @each $color,
+  $value in $theme-colors {
+    #{unquote($color)}: $value;
+  }
+  @each $color,
+  $value in $display-colors {
+    #{unquote($color)}: $value;
+  }
+}
+
+@function theme-color($key) {
+  $map: map-get($theme-colors, $key);
+  @return $map;
+}
